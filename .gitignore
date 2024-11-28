@@ -1,0 +1,22 @@
+# Binaries
+main
+*.exe
+*.out
+
+# Logs
+*.log
+
+# Dependency directories
+/vendor/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE configurations
+.vscode/
+.idea/
+
+# Temporary files
+*.swp
+*.tmp
