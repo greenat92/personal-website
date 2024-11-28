@@ -1,0 +1,40 @@
+name: Go Tests
+
+on:
+  pull_request:
+    branches:
+      - main # Trigger on PR to the 'main' branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code from the PR
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Go environment
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: '1.21' # Set your Go version here
+
+      # Cache Go modules to speed up builds
+      - name: Cache Go modules
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-mod-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-mod-
+
+      # Install dependencies
+      - name: Install dependencies
+        run: go mod tidy
+
+      # Run tests
+      - name: Run tests
+        run: go test ./...
