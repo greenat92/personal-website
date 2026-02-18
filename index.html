@@ -28,26 +28,42 @@
       rel="stylesheet"
     />
     <style>
+      /* MongoDB-inspired dark UI palette */
+      :root {
+        --mdb-black: #001E2B;
+        --mdb-gray-dark4: #112733;
+        --mdb-gray-dark2: #3D4F58;
+        --mdb-gray-light1: #C1C7C6;
+        --mdb-gray-light2: #E8EDEB;
+        --mdb-green: #00ED64;
+        --mdb-green-dark: #00684A;
+        --mdb-blue-link: #0498EC;
+      }
       body {
         margin: 0;
         padding: 0;
-        background-color: #06402b; /* Green background */
-        font-family: Arial, sans-serif;
+        font-family: "Euclid Circular A", "Helvetica Neue", Helvetica, Arial, sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
-        color: #fff;
+        min-height: 100vh;
+        color: var(--mdb-gray-light2);
+        background: var(--mdb-black);
+        background-image:
+          radial-gradient(ellipse 120% 80% at 50% -20%, rgba(0, 237, 100, 0.08), transparent),
+          radial-gradient(ellipse 80% 50% at 80% 50%, rgba(17, 39, 51, 0.9), transparent),
+          radial-gradient(ellipse 60% 40% at 20% 100%, rgba(0, 104, 74, 0.12), transparent);
       }
       .container {
         text-align: center;
       }
       .name {
-        background-color: #fff; /* White background for name */
-        color: #06402b; /* Green text */
+        background-color: var(--mdb-gray-dark4);
+        color: var(--mdb-gray-light2);
         padding: 20px;
         margin-bottom: 20px;
         border-radius: 4px;
+        border: 1px solid var(--mdb-gray-dark2);
         line-height: 0;
       }
       .icons {
@@ -57,13 +73,13 @@
       }
       .icon {
         font-size: 2rem;
-        color: #fff;
+        color: var(--mdb-gray-light1);
         cursor: pointer;
         transition: transform 0.3s ease, color 0.3s ease;
       }
       .icon:hover {
-        transform: scale(1.2); /* Enlarge on hover */
-        color: #ffc107; /* Yellow on hover */
+        transform: scale(1.2);
+        color: var(--mdb-green);
       }
     </style>
   </head>
